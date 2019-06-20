@@ -4,8 +4,10 @@ words_a = "上海自来水来自海上，所以吃葡萄不吐葡萄皮"
 
 seg_a = jieba.cut(words_a, cut_all=True)
 print("全模式：", "/".join(seg_a))
+
 seg_b = jieba.cut(words_a)
 print("准确模式：", "/".join(seg_b))
+
 seg_c = jieba.cut_for_search(words_a)
 print("搜索引擎模式：", "/".join(seg_c))
 
@@ -23,7 +25,7 @@ print("加入‘打call’后：", "/".join(jieba.cut(words_al)))
 jieba.del_word("打call")
 words_a2 = "在正义者联盟的电影里，嘻哈侠和蝙蝠侠联手打败了大boss,我高喊666，为他们疯狂打call"
 print("加载自定义词库前：", "/".join(jieba.cut(words_a2)))
-jieba.load_userdict("./data/mydict.txt")
+jieba.load_userdict("../data/mydict.txt")
 print("---------------------")
 print("加载自定义词库后：", "/".join(jieba.cut(words_a2)))
 
