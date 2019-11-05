@@ -12,7 +12,7 @@ def calcAB(x, y):
         sumXY += x[i] * y[i]
     a = (n * sumXY - sumX * sumY) / (n * sumXX - sumX * sumX)
     b = (sumXX * sumY - sumX * sumXY) / (n * sumXX - sumX * sumX)
-    return a, b,
+    return a, b
 
 
 xi = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
