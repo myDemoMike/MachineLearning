@@ -55,8 +55,6 @@ print("截距：", re.intercept_)
 print(re.predict_proba(X_test))  # 获取sigmoid函数返回的概率值
 
 # 5.模型相关信息保存
-
-
 joblib.dump(lr, "result/ss.model")
 
 oss = joblib.load("result/ss.model")

@@ -15,7 +15,10 @@ mpl.rcParams['axes.unicode_minus'] = False
 path = "datas/iris.data"
 names = ['sepal length', 'sepal width', 'petal length', 'petal width', 'cla']
 df = pd.read_csv(path, header=None, names=names)
+
+# 各个类别的数量
 df['cla'].value_counts()
+print(df['cla'].value_counts())
 df.head()
 
 
@@ -52,7 +55,7 @@ print("原始数据条数:%d；训练数据条数:%d；特征个数:%d；测试�
 # KNN算法实现
 # a. 模型构建
 # 模型中介绍的K值：n_neighbors   algorithm   可以选择使用KNN
-knn = KNeighborsClassifier(n_neighbors=3)
+knn = KNeighbors(n_neighbors=3)
 
 knn.fit(X_train, Y_train)
 

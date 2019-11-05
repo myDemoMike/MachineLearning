@@ -39,6 +39,7 @@ models = [
         ('Linear', RidgeCV(alphas=np.logspace(-3, 2, 50), fit_intercept=False))
     ]),
     Pipeline([
+        # 如果输入特征的维度很高,而且是稀疏线性关系的话， RidgeCV就不太合适,或者是要在一堆特征里面找出主要的特征，那么考虑使用Lasso回归。
         ('Poly', PolynomialFeatures(include_bias=False)),
         ('Linear', LassoCV(alphas=np.logspace(0, 1, 10), fit_intercept=False))
     ]),
@@ -141,7 +142,6 @@ for t in range(4):
         y_hat = model.predict(x_hat)
         # 计算准确率
         s = model.score(x, y)
-
         # 当d等于5的时候，设置为N-1层，其它设置0层；将d=5的这条线凸显出来
         z = N + 1 if (d == 5) else 0
         label = u'%d阶, 正确率=%.3f' % (d, s)

@@ -8,6 +8,8 @@ import pandas as pd
 from sklearn.linear_model import LinearRegression  # 线性回归的类
 from sklearn.model_selection import train_test_split  # 数据划分的类
 from sklearn.preprocessing import StandardScaler  # 数据标准化
+from sklearn.metrics import mean_squared_error
+from sklearn.metrics import r2_score
 
 print(os.path.abspath(__file__))
 # 设置字符集，防止中文乱码
@@ -81,11 +83,15 @@ lr = LinearRegression(fit_intercept=True)  # 模型对象构建
 lr.fit(X_train, Y_train)  # 训练模型
 # 模型校验
 y_predict = lr.predict(X_test)  # 预测结果
+# R2：取值范围(负无穷,1]，值越大表示模型越拟合训练数据；最优解是1；当模型预测为随机值的时候，有可能为负；若预测值恒为样本期望，R2为0
 print("训练集上R2:", lr.score(X_train, Y_train))
 print("测试集上R2:", lr.score(X_test, Y_test))
-print(Y_test)
-# 均值
+print("平均方差rmse" + str(mean_squared_error(Y_test, y_predict)))
+print("R平方值" + str(r2_score(Y_test, y_predict)))
+# print(Y_test)
+# 均值    MSE：误差平方和，越趋近于0表示模型越拟合训练数据。
 mse = np.average((y_predict - Y_test) ** 2)
+print("mse:",mse)
 # 开根号
 rmse = np.sqrt(mse)
 print("rmse:", rmse)
