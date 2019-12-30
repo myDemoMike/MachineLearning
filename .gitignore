@@ -2,3 +2,8 @@
 
 .idea
 .gitignore
+金融信贷风控
+/金融信贷风控/data/PPD_LogInfo_3_1_Training_Set.csv
+/金融信贷风控/data/PPD_Training_Master_GBK_3_1_Training_Set.csv
+/金融信贷风控/data/PPD_Userupdate_Info_3_1_Training_Set.csv
+/金融信贷风控/scorecard model development.py
